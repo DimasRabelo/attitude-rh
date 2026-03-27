@@ -10,7 +10,7 @@
     
     <style>
         :root {
-            --vinho-attitude: #4a234a; /* Cor baseada na logo */
+            --vinho-attitude: #4a234a; 
             --vinho-claro: #633363;
             --bege-suave: #fcfafc;
             --texto: #333;
@@ -21,6 +21,7 @@
             color: var(--texto); 
             background-color: var(--bege-suave);
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
         /* Navbar */
@@ -69,6 +70,15 @@
         .card-custom:hover { transform: translateY(-10px); }
         .card-custom i { color: var(--vinho-attitude); font-size: 2.5rem; margin-bottom: 20px; }
 
+        /* Estilo para Logos de Parceiros */
+        .img-parceiro {
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: 0.3s;
+            max-height: 60px;
+        }
+        .img-parceiro:hover { filter: grayscale(0%); opacity: 1; }
+
         /* WhatsApp Flutuante */
         .whatsapp-float {
             position: fixed;
@@ -105,7 +115,8 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#home">Início</a></li>
                     <li class="nav-item"><a class="nav-link" href="#sobre">Quem Somos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#missao">Missão e Valores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#biografia">A Especialista</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#parcerias">Parcerias</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
                 </ul>
             </div>
@@ -135,8 +146,24 @@
         </div>
     </section>
 
-    <section id="missao" class="py-5 bg-white">
-        <div class="container">
+    <section id="biografia" class="py-5 bg-white shadow-sm">
+        <div class="container py-5">
+            <div class="row align-items-center flex-row-reverse">
+                <div class="col-md-7">
+                    <h2 class="section-title">A Especialista</h2>
+                    <p>Com uma trajetória sólida no mercado de RH, nossa fundadora combina técnica e empatia para realizar contratações que realmente transformam negócios.</p>
+                    <p>Sua visão inegociável é a valorização de todas as trajetórias profissionais, prezando sempre pela transparência e ética em cada etapa do processo seletivo.</p>
+                    <p class="fst-italic text-muted">"Acredito que o respeito aos talentos e a assertividade nos processos são os pilares para qualquer escalada de sucesso."</p>
+                </div>
+                <div class="col-md-5 text-center">
+                    <img src="foto-especialista.jpg" alt="Especialista RH" class="img-fluid rounded-circle shadow" style="width: 280px; height: 280px; object-fit: cover; border: 8px solid var(--bege-suave);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="missao" class="py-5">
+        <div class="container py-5">
             <div class="row g-4">
                 <div class="col-md-4 text-center">
                     <div class="card-custom">
@@ -163,7 +190,20 @@
         </div>
     </section>
 
-    <section id="contato" class="py-5 text-center">
+    <section id="parcerias" class="py-5" style="background-color: #f1e9f1;">
+        <div class="container text-center py-4">
+            <h2 class="section-title mx-auto" style="width: fit-content;">Parcerias e Clientes</h2>
+            <p class="mb-5">Empresas que confiam na nossa expertise para formar suas equipes.</p>
+            <div class="row align-items-center justify-content-center g-5">
+                <div class="col-6 col-md-2"><img src="https://via.placeholder.com/150x80?text=Logo+Parceiro" class="img-fluid img-parceiro" alt="Parceiro"></div>
+                <div class="col-6 col-md-2"><img src="https://via.placeholder.com/150x80?text=Logo+Parceiro" class="img-fluid img-parceiro" alt="Parceiro"></div>
+                <div class="col-6 col-md-2"><img src="https://via.placeholder.com/150x80?text=Logo+Parceiro" class="img-fluid img-parceiro" alt="Parceiro"></div>
+                <div class="col-6 col-md-2"><img src="https://via.placeholder.com/150x80?text=Logo+Parceiro" class="img-fluid img-parceiro" alt="Parceiro"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="py-5 text-center bg-white">
         <div class="container py-5">
             <h2 class="section-title mx-auto" style="width: fit-content;">Vamos conversar?</h2>
             <p class="mb-5">Estamos prontos para ajudar sua empresa a crescer com os talentos certos.</p>
