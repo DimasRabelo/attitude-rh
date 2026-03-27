@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attitude RH - Consultoria e Recrutamento</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --azul-marinho: #0a1d37;
+            --azul-claro: #1d3557;
+            --texto: #333;
+        }
+        body { font-family: 'Inter', sans-serif; color: var(--texto); }
+        .navbar { background-color: var(--azul-marinho); }
+        .hero { 
+            background: linear-gradient(rgba(10, 29, 55, 0.8), rgba(10, 29, 55, 0.8)), url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+        }
+        .btn-primary { background-color: var(--azul-claro); border: none; }
+        .section-title { color: var(--azul-marinho); margin-bottom: 40px; font-weight: bold; }
+        .card { border: none; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">ATTITUDE RH</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Transformando Talentos em Resultados</h1>
+            <p class="lead">Consultoria especializada em Recrutamento, Seleção e Gestão de Pessoas.</p>
+            <a href="https://wa.me/SEUNUMERO" class="btn btn-primary btn-lg mt-3">Falar com um Consultor</a>
+        </div>
+    </header>
+
+    <section id="servicos" class="py-5">
+        <div class="container text-center">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card p-4 h-100">
+                        <h3>Recrutamento</h3>
+                        <p>Encontramos o profissional ideal para a cultura da sua empresa.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card p-4 h-100">
+                        <h3>Treinamentos</h3>
+                        <p>Desenvolvimento de lideranças e equipes de alta performance.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card p-4 h-100">
+                        <h3>Consultoria</h3>
+                        <p>Análise estratégica de RH e estruturação de processos internos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
