@@ -26,7 +26,19 @@
             color: white;
             padding: 120px 0;
         }
+/* Estilo das logos dos clientes */
+.img-parceiro {
+    max-height: 85px;   /* Altura uniforme para todas */
+    width: auto;
+    display: block;
+    margin: 0 auto;
+    filter: none;       /* Cores originais */
+    transition: transform 0.3s ease;
+}
 
+.img-parceiro:hover {
+    transform: scale(1.1); /* Zoom sutil de 10% no hover */
+}
         .btn-primary { 
             background-color: var(--vinho-attitude); 
             border: 2px solid white; 
