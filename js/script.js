@@ -52,4 +52,10 @@ document.querySelectorAll('.nav-link, .btn').forEach(anchor => {
     });
 });
 
-
+// Inicializa o GLightbox (Função de expandir fotos)
+const lightbox = GLightbox({
+    selector: '.glightbox',
+    touchNavigation: true,
+    loop: true,
+    zoomable: true
+});
