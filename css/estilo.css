@@ -114,3 +114,20 @@
 #videos-apresentacao video {
     border-radius: 20px 20px 0 0; /* Arredonda apenas o topo do vídeo */
 }
+
+/* Garante que o link do desenvolvedor seja visível */
+.dimtech-footer-link {
+    transition: all 0.3s ease;
+    border-bottom: 1px dashed rgba(255,255,255,0.3);
+}
+
+.dimtech-footer-link:hover {
+    color: #25d366 !important; /* Fica verde ao passar o mouse */
+    border-bottom-color: #25d366;
+    transform: scale(1.05);
+}
+
+/* Remove qualquer underline residual dos ícones do topo */
+.transition-icon i {
+    text-decoration: none !important;
+}
