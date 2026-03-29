@@ -102,3 +102,15 @@
         .whatsapp-float:hover { color: white; background-color: #128c7e; }
 
         footer { background-color: var(--vinho-attitude); color: white; padding: 40px 0; }
+
+        /* Arredondando os containers de vídeo */
+#videos-apresentacao .card {
+    border-radius: 20px; /* Ajuste o valor para mais ou menos arredondado */
+    overflow: hidden;    /* Essencial para o vídeo não "vazar" da borda */
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Sombra suave para destacar */
+}
+
+#videos-apresentacao video {
+    border-radius: 20px 20px 0 0; /* Arredonda apenas o topo do vídeo */
+}
