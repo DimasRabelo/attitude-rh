@@ -1,75 +1,93 @@
-// Inicializar Animações AOS
-AOS.init({
-    duration: 1000,
-    once: true
-});
+/**
+ * PROJETO: Attitude RH 
+ * DESENVOLVEDOR: Dimtech (Dimas Aparecido Rabelo de Souza)
+ * VERSÃO: 2.0 (SEO & Performance Optimized)
+ */
 
-// Contador de Resultados Animado
-const counters = document.querySelectorAll('.counter');
-const speed = 200;
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. INICIALIZAR ANIMAÇÕES (AOS)
+    // Delay de 100ms para garantir que o layout base já carregou
+    setTimeout(() => {
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100, // Inicia a animação 100px antes do elemento aparecer
+            disable: 'mobile' // Opcional: desativa em celulares muito antigos para poupar bateria
+        });
+    }, 100);
 
-const startCounting = (entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const updateCount = () => {
-                const target = +entry.target.getAttribute('data-target');
-                const count = +entry.target.innerText.replace('+', ''); // Remove o + se houver
-                const inc = target / speed;
-
-                if (count < target) {
-                    entry.target.innerText = Math.ceil(count + inc);
-                    setTimeout(updateCount, 15);
-                } else {
-                    entry.target.innerText = target + "+";
-                }
-            };
-            updateCount();
-            observer.unobserve(entry.target);
-        }
+    // 2. LIGHTBOX (Galeria de Imagens)
+    const lightbox = GLightbox({
+        selector: '.glightbox',
+        touchNavigation: true,
+        loop: true,
+        zoomable: true
     });
-};
 
-const observer = new IntersectionObserver(startCounting, {
-    threshold: 0.5
-});
+    // 3. CONTADOR DE RESULTADOS ANIMADO
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200;
 
-counters.forEach(counter => observer.observe(counter));
-
-// Scroll Suave para o Menu
-document.querySelectorAll('.nav-link, .btn').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href.startsWith('#')) {
-            e.preventDefault();
-            const target = document.querySelector(href);
-            if (target) {
-                window.scrollTo({
-                    top: target.offsetTop - 70,
-                    behavior: 'smooth'
-                });
+    const startCounting = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const targetElement = entry.target;
+                const targetValue = +targetElement.getAttribute('data-target');
+                
+                let count = 0;
+                const updateCount = () => {
+                    const inc = targetValue / speed;
+                    if (count < targetValue) {
+                        count += inc;
+                        targetElement.innerText = Math.ceil(count) + "+";
+                        setTimeout(updateCount, 15);
+                    } else {
+                        targetElement.innerText = targetValue + "+";
+                    }
+                };
+                updateCount();
+                observer.unobserve(targetElement);
             }
-        }
+        });
+    };
+
+    const counterObserver = new IntersectionObserver(startCounting, {
+        threshold: 0.5
     });
-});
 
-// Inicializa o GLightbox (Função de expandir fotos)
-const lightbox = GLightbox({
-    selector: '.glightbox',
-    touchNavigation: true,
-    loop: true,
-    zoomable: true
-});
+    counters.forEach(counter => counterObserver.observe(counter));
 
-// Função para impedir que dois vídeos toquem ao mesmo tempo
-const todosOsVideos = document.querySelectorAll('video');
+    // 4. CONTROLE DE VÍDEOS (UX: Pausa um ao dar play no outro)
+    const todosOsVideos = document.querySelectorAll('video');
+    todosOsVideos.forEach(videoAtivo => {
+        videoAtivo.addEventListener('play', () => {
+            todosOsVideos.forEach(outroVideo => {
+                if (outroVideo !== videoAtivo) {
+                    outroVideo.pause();
+                }
+            });
+        });
+    });
 
-todosOsVideos.forEach(videoAtivo => {
-    videoAtivo.addEventListener('play', () => {
-        // Quando um vídeo começa, pausa todos os outros
-        todosOsVideos.forEach(outroVideo => {
-            if (outroVideo !== videoAtivo) {
-                outroVideo.pause();
+    // 5. SCROLL SUAVE (Navegação Interna)
+    document.querySelectorAll('.nav-link, .btn').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href && href.startsWith('#') && href !== '#') {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const navHeight = document.querySelector('.navbar').offsetHeight;
+                    window.scrollTo({
+                        top: target.offsetTop - navHeight,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
+
+    // 6. LOG DE SUCESSO DIMTECH
+    console.log("Attitude RH - Site carregado com sucesso via Dimtech Engine.");
 });
