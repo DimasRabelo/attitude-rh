@@ -59,3 +59,17 @@ const lightbox = GLightbox({
     loop: true,
     zoomable: true
 });
+
+// Função para impedir que dois vídeos toquem ao mesmo tempo
+const todosOsVideos = document.querySelectorAll('video');
+
+todosOsVideos.forEach(videoAtivo => {
+    videoAtivo.addEventListener('play', () => {
+        // Quando um vídeo começa, pausa todos os outros
+        todosOsVideos.forEach(outroVideo => {
+            if (outroVideo !== videoAtivo) {
+                outroVideo.pause();
+            }
+        });
+    });
+});
