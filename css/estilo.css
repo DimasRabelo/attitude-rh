@@ -88,7 +88,7 @@ body {
     border-radius: 20px;
     overflow: hidden;
     border: none;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     transition: var(--transicao);
     background: white;
 }
@@ -97,12 +97,29 @@ body {
     transform: translateY(-5px);
 }
 
-#videos-apresentacao video {
+/* Container que segura o vídeo e o fundo personalizado */
+.video-container-custom {
+    /* O degradê que você quer */
+    background: linear-gradient(135deg, #4a234a 0%, #2c152c 100%);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* Removemos o bg-dark do Bootstrap no HTML e aqui garantimos que não haja fundo preto fixo */
+}
+
+/* Ajuste do vídeo para mostrar o fundo nas laterais */
+.video-container-custom video {
     border-radius: 20px 20px 0 0;
     width: 100%;
     height: 100%;
-    object-fit: contain !important; /* Muda de cover para contain */
-    background-color: #000; /* Força o fundo preto para cobrir o espaço */
+    /* O segredo para o fundo aparecer: */
+    object-fit: contain !important; 
+    /* Removemos a linha: background-color: #000; que estava aqui */
+    background-color: transparent !important; 
+    z-index: 2;
 }
 
 /* 6. PARCERIAS E LOGOS (Lightbox Ready) */
