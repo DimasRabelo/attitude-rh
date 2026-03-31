@@ -1,17 +1,17 @@
 /* PROJETO: Attitude RH 
     DESENVOLVEDOR: Dimtech (www.dimtech.com.br)
-    VERSÃO: 2.0 (SEO & AdSense Ready)
+    VERSÃO: 2.1 (SEO & AdSense Optimized)
 */
 
 /* 1. VARIÁVEIS E TEMA GLOBAL */
 :root {
-    --vinho-attitude: #4a234a; /* Cor extraída da logo oficial */
+    --vinho-attitude: #4a234a; 
     --vinho-claro: #633363;
     --bege-suave: #fcfafc;
     --whatsapp: #25d366;
     --whatsapp-dark: #128c7e;
     --texto: #333;
-    --transicao: all 0.3s ease;
+    --transicao: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /* Reset e Suavização */
@@ -21,30 +21,38 @@ body {
     background-color: var(--bege-suave);
     line-height: 1.6;
     scroll-behavior: smooth;
-    overflow-x: hidden; /* Evita scroll horizontal indesejado */
+    overflow-x: hidden;
+}
+
+/* Foco de Acessibilidade */
+:focus {
+    outline: 2px solid var(--vinho-claro);
+    outline-offset: 3px;
 }
 
 /* 2. NAVEGAÇÃO (Navbar) */
 .navbar { 
     background-color: var(--vinho-attitude); 
-    padding: 15px 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 12px 0;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+    transition: var(--transicao);
 }
 
 .navbar-brand { 
     font-weight: 700; 
     letter-spacing: 1px; 
+    text-transform: uppercase;
 }
 
-/* 3. HERO SECTION (SEO: Título Principal) */
+/* 3. HERO SECTION */
 .hero { 
-    background: linear-gradient(rgba(74, 35, 74, 0.85), rgba(74, 35, 74, 0.85)), 
+    background: linear-gradient(rgba(74, 35, 74, 0.88), rgba(74, 35, 74, 0.88)), 
                 url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1350&q=80');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Efeito Parallax suave */
+    background-attachment: fixed;
     color: white;
-    min-height: 80vh; /* Garante boa visualização inicial */
+    min-height: 80vh;
     display: flex;
     align-items: center;
 }
@@ -60,16 +68,16 @@ body {
 .section-title::after {
     content: '';
     display: block;
-    width: 60px;
+    width: 50px;
     height: 4px;
     background: var(--vinho-attitude);
-    margin-top: 10px;
+    margin-top: 12px;
     border-radius: 2px;
 }
 
 .btn-primary { 
     background-color: var(--vinho-attitude); 
-    border: 2px solid white; 
+    border: 2px solid transparent; 
     padding: 12px 35px;
     border-radius: 50px;
     font-weight: 600;
@@ -79,27 +87,27 @@ body {
 .btn-primary:hover { 
     background-color: white; 
     color: var(--vinho-attitude); 
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-color: var(--vinho-attitude);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(74, 35, 74, 0.2);
 }
 
-/* 5. VÍDEOS E CARDS (Otimizado para UX) */
+/* 5. VÍDEOS E CARDS */
 #videos-apresentacao .card {
     border-radius: 20px;
     overflow: hidden;
     border: none;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     transition: var(--transicao);
     background: white;
 }
 
 #videos-apresentacao .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
 }
 
-/* Container que segura o vídeo e o fundo personalizado */
 .video-container-custom {
-    /* O degradê que você quer */
     background: linear-gradient(135deg, #4a234a 0%, #2c152c 100%);
     background-size: cover;
     background-position: center;
@@ -107,74 +115,54 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    /* Removemos o bg-dark do Bootstrap no HTML e aqui garantimos que não haja fundo preto fixo */
 }
 
-/* Ajuste do vídeo para mostrar o fundo nas laterais */
 .video-container-custom video {
-    border-radius: 20px 20px 0 0;
     width: 100%;
     height: 100%;
-    /* O segredo para o fundo aparecer: */
     object-fit: contain !important; 
-    /* Removemos a linha: background-color: #000; que estava aqui */
     background-color: transparent !important; 
     z-index: 2;
 }
 
-/* 6. PARCERIAS E LOGOS (Lightbox Ready) */
+/* 6. PARCERIAS */
 .img-parceiro {
-    max-height: 80px;
+    max-height: 70px;
     width: auto;
-    display: block;
-    margin: 0 auto;
+    filter: grayscale(100%); /* Fica P&B por padrão */
+    opacity: 0.7;
     transition: var(--transicao);
-    cursor: zoom-in; /* Indica que a foto expande */
 }
 
 .img-parceiro:hover {
+    filter: grayscale(0%);
+    opacity: 1;
     transform: scale(1.1);
 }
 
-/* 7. RODAPÉ (Footer & Dimtech Creditos) */
+/* 7. RODAPÉ */
 footer { 
     background-color: var(--vinho-attitude); 
     color: white; 
 }
 
-.transition-icon {
-    display: inline-block;
-    transition: var(--transicao);
-}
-
-.transition-icon:hover {
-    transform: translateY(-5px);
-    color: #d1b2d1 !important;
-}
-
-.dimtech-footer-link {
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-    transition: var(--transicao);
-}
-
 .dimtech-footer-link:hover {
     color: var(--whatsapp) !important;
-    border-bottom-color: var(--whatsapp);
 }
 
-/* 8. WHATSAPP FLUTUANTE (SEO: Acessibilidade) */
+/* 8. WHATSAPP FLUTUANTE */
 .whatsapp-float {
     position: fixed;
     width: 60px;
     height: 60px;
-    bottom: 30px;
-    right: 30px;
+    bottom: 90px; /* Aumentado para não brigar com a barra de cookies inicial */
+    right: 25px;
     background-color: var(--whatsapp);
     color: #FFF;
     border-radius: 50px;
     font-size: 30px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    z-index: 9999;
+    z-index: 999;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -182,22 +170,50 @@ footer {
     transition: var(--transicao);
 }
 
-.whatsapp-float:hover { 
-    color: white; 
-    background-color: var(--whatsapp-dark); 
-    transform: scale(1.1) rotate(10deg);
+/* 9. SUPORTE ADSENSE */
+.ads-placeholder {
+    min-height: 250px; /* Reserva espaço para evitar pulos de layout */
+    background: rgba(0,0,0,0.02);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
 }
 
-/* 9. SUPORTE ADSENSE (Reserva de espaço para evitar pulos de layout) */
-ins.adsbygoogle {
-    background: transparent !important;
-    display: block !important;
-    margin: 20px auto !important;
+/* Barra de Cookies */
+.cookie-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--vinho-attitude); 
+    color: var(--bege-suave);
+    padding: 18px;
+    z-index: 9999;
+    display: none; 
+    align-items: center;
+    justify-content: center;
+    border-top: 2px solid var(--vinho-claro);
+    box-shadow: 0 -5px 25px rgba(0,0,0,0.3);
 }
 
-/* 10. MEDIA QUERIES (Responsividade) */
+.btn-aceitar {
+    background-color: white;
+    color: var(--vinho-attitude);
+    border: none;
+    padding: 8px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-left: 15px;
+    transition: var(--transicao);
+}
+
+/* 10. MEDIA QUERIES */
 @media (max-width: 768px) {
-    .hero { padding: 80px 0; min-height: auto; }
-    .section-title { font-size: 1.8rem; }
-    .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 25px; }
+    .hero h1 { font-size: 2.2rem; }
+    .whatsapp-float { bottom: 100px; width: 55px; height: 55px; }
+    .cookie-bar { flex-direction: column; padding: 20px; }
+    .btn-aceitar { margin-left: 0; margin-top: 15px; width: 100%; }
 }

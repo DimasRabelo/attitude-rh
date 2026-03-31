@@ -91,3 +91,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // 6. LOG DE SUCESSO DIMTECH
     console.log("Attitude RH - Site carregado com sucesso via Dimtech Engine.");
 });
+
+// Função para a Barra de Cookies
+function aceitarCookies() {
+    localStorage.setItem("cookiesAceitos", "true");
+    document.getElementById("cookie-bar").style.display = "none";
+}
+
+window.onload = function() {
+    if (!localStorage.getItem("cookiesAceitos")) {
+        document.getElementById("cookie-bar").style.display = "flex";
+    }
+};
